@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description"
+          content="E-shop of italian quality products">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <title>Mont Blanc</title>
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/cart.js" defer></script>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<header class="header">
+    <div class="header__inner">
+        <a class="header__logo logo" href="/"> <img class="logo__image" src="./images/Logo.png" alt="Mont Blank" width="250" height="84"/> </a>
+        <div class="header__menu services">
+            <ul>
+                <li class="header__menu-item"><a href="/Presentation.pdf" target="_blank">Presentation </a></li>
+                <li class="header__menu-item"><a onclick="open_autorization()">Login</a></li>
+            </ul>
+        </div>
+        <div class="header__contact phone">
+            <p class="tel">050 145-28-41</p>
+            <p class="time">support 0800 574 54 44 </p>
+        </div>
+        <div class="header__contact time">
+            <p class="tel">Store Opening</p>
+            <p class="time">daily from 8.00 to 21.00 </p>
+        </div>
+        <div class="header__cart_container">
+            <div class="header__cart">
+                <button class="header__button button cart">
+                    <p>cart</p>
+                    <p class="amount-items-null" data-amount></p>
+                </button>
+            </div>
+            <div class="header__drop-cart-container">
+                <div class="header__drop-cart">
+                    <div class="drop-cart-inner">
+                        <p class="cart_header">Your order: </p>
+                        <p class="cart-amount"><span class="cart-amount-total">&nbsp;</span> ₪</p>
+                    </div>
+                    <div class="cart-item-container" data-items>
+
+                    </div>
+                    <a href="cart.html" class="header__drop-cart-button hide" data-cart-total> Order</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="nav">
+    <ul class="nav__menu">
+        <li class="nav__menu-item"><a href="/">gift card</a></li>
+        <li class="nav__menu-item"><a href="/">special programms</a></li>
+        <li class="nav__menu-item"><a href="/">sales</a></li>
+        <li class="nav__menu-item"><a href="/">delivery</a></li>
+        <li class="nav__menu-item"><a href="/">contacts</a></li>
+    </ul>
+</nav>
+<main>
+    <section class="slider">
+        <div class="slider__arrow_left" onclick="nextSlide()"></div>
+        <div class="slider__arrow_right" onclick="prevSlide()"></div>
+        <ul class="slider__items">
+            <li class="slider__items-inner">
+                <img src="./images/slides/compile/slide_1.webp" height="500" width="1920" alt="Sicilian cheeses"/>
+                <div class="description">
+                    <h2>Sicilian cheeses</h2>
+                    <p class="price">from <span>160.00</span> ₪ / kg</p>
+                    <p class="text">Lorem Pellentesque habitant morbi tristique senectus et <br>
+                        netus et malesuada fames ac turpis egestas. </p>
+
+                    <!--          <a href="/" class="slider__items-inner-button button"> подробнее</a>--> </div>
+            </li>
+            <li class="slider__items-inner">
+                <img src="./images/slides/compile/slide_2.webp" height="500" width="1920" alt="Italian Prosciutto"/>
+                <div class="description">
+                    <h2>Italian Prosciutto</h2>
+                    <p class="price">from <span>120.00</span> ₪ / kg</p>
+                    <p class="text">Lorem Pellentesque habitant morbi tristique senectus et <br>
+                        netus et malesuada fames ac turpis egestas. </p>
+
+                    <!--          <a href="/" class="slider__items-inner-button button"> подробнее</a>--> </div>
+            </li>
+            <li class="slider__items-inner">
+                <img src="./images/slides/compile/slide_3.webp" height="500" width="1920" alt="Italian Pasta"/>
+                <div class="description">
+                    <h2>Italian Pasta</h2>
+                    <p class="price">from <span>40.00</span> ₪ / kg</p>
+                    <p class="text">Lorem Pellentesque habitant morbi tristique senectus et <br>
+                        netus et malesuada fames ac turpis egestas. </p>
+
+                    <!--          <a href="/" class="slider__items-inner-button button"> подробнее</a>--> </div>
+            </li>
+        </ul>
+
+    </section>
+    <section class="section_01">
+
+        <h2>special offers</h2>
+
+        <ul class="section_01__promotions">  <!-- Dynamic content --> </ul>
+    </section>
+    <section class="section_02">
+        <div class="section_02__banner container">
+            <div class="section_02__banner container inner_left"><img src="images/banners/banner_spices.png" width="955"
+                                                                      height="200" alt=""/>
+                <div class="text padding_right_50">
+                    <p class="padding_right_50">Traditional spices</p>
+                    <p>20% discount</p>
+                </div>
+            </div>
+            <div class="section_02__banner container inner_right"><img src="images/banners/banner_cheese.png"
+                                                                       width="965" height="200" alt=""/>
+                <div class="text padding_left_50">
+                    <p>Italian cheeses</p>
+                    <p class="padding_left_50">at competitive prices</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section_03">
+        <h2>delivery and payment</h2>
+        <div class="section_03__info">
+            <div class="delivery"><img src="images/svg/delivery.svg" alt=""/>
+                <h3>Delivery</h3>
+                <p class="sub_text">DAILY FROM 06:00 TO 12:00</p>
+                <p>Choose any convenient 2-hour interval. Healthy food delivery in Moscow is carried out by our drivers,
+                    who pick up your order from the kitchen in the morning and deliver it at the time and place you
+                    specify.</p>
+            </div>
+            <div class="support"><img src="images/svg/support.svg" alt=""/>
+                <h3>Support</h3>
+                <p class="sub_text">24/7 and 7 days a week</p>
+                <p>If you have any questions or difficulties with the receipt, delivery or quality of the goods, our
+                    support service will help you solve your problem at any time. We work 24 hours a day and 7 days a
+                    week.</p>
+            </div>
+            <div class="payment"><img src="images/svg/payment.svg" alt=""/>
+                <h3>Payment</h3>
+                <p class="sub_text">by any convenient method</p>
+                <p>We do everything so that you can pay for the goods in the most convenient way. Currently, you can pay
+                    in the following ways: payment by cards, cash to the courier upon receipt of the goods and through
+                    an online wallet.</p>
+            </div>
+        </div>
+    </section>
+    <section class="section_04">
+        <div class="section_04__container">
+            <div class="section_04__container phone"><span class="black">phone:</span> 050 145-28-41</div>
+            <div class="section_04__container email"><span class="black">e-mail:</span> info@montblank.com</div>
+            <div class="section_04__container support"><span class="black">support:</span> support@montblank.com</div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__container">
+            <div><img src="images/Logo.png" width="250" height="84" alt=""/>
+                <p class="tel">050 145-28-41</p>
+                <p class="time">daily from 8.00 to 21.00 </p>
+            </div>
+            <div>
+                <h5>For buyers</h5>
+                <ul>
+                    <li class="header__menu-item"><a href="/">Brand </a></li>
+                    <li class="header__menu-item"><a href="/">Recipes </a></li>
+                    <li class="header__menu-item"><a href="/">How to order</a></li>
+                    <li class="header__menu-item"><a href="/">Return of goods </a></li>
+                    <li class="header__menu-item"><a href="/">Loyalty program</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>information</h5>
+                <ul>
+                    <li class="header__menu-item"><a href="/">Delivery and payment </a></li>
+                    <li class="header__menu-item"><a href="/">Contacts and details</a></li>
+                    <li class="header__menu-item"><a href="/">Privacy policy</a></li>
+                    <li class="header__menu-item"><a href="/">Consent to data processing </a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>We accept payment</h5>
+                <img src="images/payment.webp" width="170" alt="payment"/></div>
+        </div>
+    </footer>
+</main>
+<div class="overlay hide" data-modal-autorization>
+    <div class="popup_autorization">
+        <div class="popup_autorization__container">
+            <div class="popup_autorization__header">
+                <h3>Authentication</h3>
+                <div class="popup_autorization__close" onclick="close_autorization()"></div>
+            </div>
+            <div class="popup_autorization__content">
+                <form action="./login" method="POST">
+                    <input type="text" placeholder="Enter your login" name="login" required minlength="3"/>
+                    <input type="password" placeholder="Enter your password" name="password" required minlength="3"/>
+                    <button type="submit" class="button">Submit</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

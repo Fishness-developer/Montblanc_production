@@ -1,0 +1,65 @@
+
+html {
+  font-size: 62.5%;
+}
+
+
+body {
+  font-family: var(--font-family-roboto);
+  @include font-face($font-size-regular*1px, 300, var(--color-dark));
+  height: 100vh;
+
+}
+
+h1 {
+  @include font-face($font-size-header-first/10*1rem, 900, var(--color-dark));
+  text-transform: uppercase;
+}
+
+h2 {
+  @include font-face($font-size-header-second/10*1rem, 700, var(--color-dark));
+  text-transform: uppercase;
+}
+
+h3 {
+  @include font-face($font-size-header-third/10*1rem, 700, var(--color-dark));
+  text-transform: uppercase;
+}
+
+h4 {
+  @include font-face($font-size-header-fourth/10*1rem, 500, var(--color-dark));
+  text-transform: uppercase;
+}
+
+h5 {
+  @include font-face($font-size-header-fifth/10*1rem, 500, var(--color-beige));
+  text-transform: uppercase;
+}
+
+a:hover, a:not(:hover), a:hover::after, a:not(:hover)::after, .section_01__promotions-item:hover, .section_01__promotions-item:not(:hover), .section_01__promotions-item-button:hover, .section_01__promotions-item-button:not(:hover) {
+  transition: .5s;
+}
+
+.padding_right_50 {
+  padding-right: 50px;
+}
+
+.padding_left_50 {
+  padding-left: 50px;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.hide {
+  display: none;
+}
+
+.show_flex {
+  display: flex;
+}
+
+.red {
+  color: #ff0000;
+}

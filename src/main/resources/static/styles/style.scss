@@ -1,0 +1,1037 @@
+// Scss Document
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import "normalize";
+@import "variables";
+@import "mixins";
+@import "global";
+@import "media";
+
+.button,
+input {
+  border-radius: #{$border-radius-button}px;
+  height: #{$height-button}px;
+  padding: #{$padding-button}px;
+  text-decoration: none;
+  @include font-face($font-size-regular * 1px, 400, var(--color-white));
+  text-transform: uppercase;
+}
+
+.header {
+  @include block-set(100%, 120px, 0 30px, 0, var(--color-green));
+  display: flex;
+
+  box-sizing: border-box;
+
+  &__inner {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    column-gap: 50px;
+  }
+
+  &__logo {
+    //		flex-grow:1;
+  }
+
+  &__menu.services {
+    flex-grow: 1;
+  }
+
+  &__menu.services ul {
+    display: flex;
+    justify-content: left;
+    gap: 30px;
+    margin: 0 50px;
+  }
+
+  &__menu.services li:hover {
+      cursor: pointer;
+  }
+
+  &__menu.services ul li a {
+    @include font-face($font-size-regular * 1px, 300, var(--color-white));
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  &__menu.services a::after {
+    content: "";
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0;
+    height: 1px;
+    background: var(--color-white);
+  }
+
+  &__menu.services a:hover::after {
+    width: 100%;
+  }
+
+  &__cart_container {
+  }
+
+  &__cart {
+    position: relative;
+    z-index: 100;
+  }
+
+  &__drop-cart-container {
+    position: relative;
+    display: none;
+    z-index: 10;
+  }
+
+  &__drop-cart {
+    @include block-set(auto, auto, 0px, -55px 0 0 0, var(--color-dark));
+    position: absolute;
+    right: -10px;
+    min-width: 450px;
+
+    p {
+      @include font-face($font-size-regular * 1px, 300, var(--color-black));
+    }
+
+    p.cart-amount {
+      @include font-face(
+                      $font-size-header-fourth * 1px,
+                      600,
+                      var(--color-beige)
+      );
+    }
+
+    .cart-item-container {
+      @include block-set(100%, auto, 0, 0, var(--color-white));
+      box-sizing: border-box;
+    }
+
+    .drop-cart-inner {
+      padding: 10px 20px;
+
+      p.cart_header {
+        color: var(--color-white);
+      }
+    }
+
+    .cart-order-product {
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      align-items: center;
+      justify-items: center;
+      width: auto;
+      align-self: center;
+      padding: 10px;
+
+      img {
+        width: 30px;
+        height: auto;
+      }
+
+      .cart-close {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__drop-cart-button {
+    @include font-face($font-size-regular * 1px, 500, var(--color-white));
+    font-family: var(--font-family-roboto);
+    background: var(--color-green);
+    align-items: center;
+    white-space: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+    border: 0;
+    width: 100%;
+    justify-content: center;
+    padding: 10px 0;
+    text-decoration: none;
+  }
+
+  &__button {
+    font-family: var(--font-family-roboto);
+    background: none;
+    border: 1px solid #fff;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    white-space: nowrap;
+  }
+
+  &__button p,
+  &__button-drop p {
+    margin-top: 3px;
+  }
+
+  &__button-drop {
+    background-color: var(--color-green);
+    border-radius: 40px;
+    white-space: nowrap;
+  }
+
+  & .amount-items {
+    @include block-set(auto, auto, 3px, 0 auto, var(--color-green));
+    position: absolute;
+    border-radius: 20px;
+    top: 55px;
+    right: 132px;
+    font-size: 11px;
+    line-height: 10px;
+  }
+
+  & .amount-items-null {
+    @include block-set(auto, auto, 3px, 0 auto, var(--color-green));
+    position: absolute;
+    border-radius: 20px;
+    font-size: 11px;
+    line-height: 10px;
+    margin-left: -29px;
+    margin-top: 22px;
+  }
+
+  &__input {
+    font-family: var(--font-family-roboto);
+    @include font-face($font-size-regular * 1px, 300, var(--color-white));
+    background: #3fa81f url("../images/svg/search.svg") 20px 50% no-repeat;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 500px;
+    padding-left: 50px;
+  }
+
+  &__contact.phone {
+    white-space: nowrap;
+    color: var(--color-white);
+    background: url("../images/svg/phone.svg") 0 50% no-repeat;
+    padding-left: 30px;
+  }
+
+  &__contact.time {
+    white-space: nowrap;
+    color: var(--color-white);
+    background: url("../images/svg/mdi_clock-outline.svg") 0 50% no-repeat;
+    padding-left: 30px;
+  }
+
+  &__contact.phone .tel,
+  &__contact.time .tel {
+    @include font-face($font-size-header-third * 1px, 500, var(--color-white));
+  }
+
+  &__burger {
+    background: url("../images/svg/burger.svg") no-repeat;
+    width: 24px;
+    height: 16px;
+    border: 0;
+  }
+
+  .all-goods {
+    background: url("../images/svg/goods.svg") 20px 50% no-repeat;
+  }
+
+  .cart {
+    background-image: url("../images/svg/cart.svg");
+    background-repeat: no-repeat;
+    background-position: 20px 50%;
+  }
+}
+
+.nav {
+  display: flex;
+  @include block-set(100%, 60px, 0, 0 auto, var(--color-dark));
+
+  &__menu {
+    @include block-set(auto, 60px, 0, 0 auto, none);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 50px;
+    white-space: nowrap;
+  }
+
+  &__menu-item a {
+    @include font-face($font-size-regular * 0.1rem, 300, var(--color-white));
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  &__menu-item a::after {
+    content: "";
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0;
+    height: 1px;
+    background: var(--color-beige);
+  }
+
+  &__menu-item a:hover::after {
+    width: 100%;
+  }
+
+  &__menu-item a:hover {
+    color: var(--color-beige);
+  }
+}
+
+.slider {
+  @include block-set(100%, 500px, 0, 0 auto, var(--color-black));
+
+  &__arrow_left {
+    background: url(../images/svg/arrow_left.svg) no-repeat;
+    position: absolute;
+    left: 0;
+    margin: 200px 0 0 30px;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    opacity: 0.9;
+  }
+
+  &__arrow_right {
+    background: url(../images/svg/arrow_right.svg) no-repeat;
+    position: absolute;
+    right: 0;
+    margin: 200px 30px 0 0;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    opacity: 0.9;
+  }
+
+  &__arrow_left:hover,
+  &__arrow_right:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  &__items {
+    overflow: hidden;
+    display: flex;
+  }
+
+  &__items-inner {
+    overflow: hidden;
+    display: none;
+    justify-content: left;
+    align-items: center;
+  }
+
+  &__items-inner img {
+    opacity: 0.7;
+  }
+
+  &__items-inner-button {
+    background: var(--color-green);
+    padding: 15px 30px;
+  }
+
+  &__items-inner-button:hover {
+    background: var(--color-green-hover);
+    padding: 15px 30px;
+  }
+
+  &__items-inner .description {
+    position: absolute;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    margin: 0 130px;
+  }
+
+  &__items-inner .description .text {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+  }
+
+  &__items-inner h2 {
+    color: var(--color-white);
+  }
+
+  &__items-inner p {
+    @include font-face($font-size-header-third * 1px, 500, var(--color-white));
+    margin-bottom: 30px;
+  }
+
+  &__items-inner p.price span {
+    font-size: 48px;
+    color: var(--color-green);
+    font-weight: 700;
+  }
+}
+
+.section_01 {
+  @include block-set(
+                  100%,
+                  auto,
+                  50px 0,
+                  0 auto,
+                  url("../images/bg_fon1.jpg") repeat
+  );
+
+  h2 {
+    color: var(--color-green);
+    margin: 0;
+    text-align: center;
+  }
+
+  &__promotions {
+    @include block-set(100%, auto, 0, 30px auto, none);
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  &__promotions-item {
+    width: colums(3);
+    padding: 30px;
+    background: var(--color-white);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    box-sizing: border-box;
+  }
+
+  &__promotions-item a {
+    text-decoration: none;
+    text-align: center;
+  }
+
+  &__promotions-item img {
+    margin-bottom: 30px;
+  }
+
+  &__promotions-item p {
+    @include font-face($font-size-regular * 1px, 400, var(--color-dark));
+    width: 100%;
+    text-align: center;
+  }
+
+  &__promotions-item .extra {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  &__promotions-item .offer {
+    font-size: 14px;
+    font-weight: 300;
+    text-decoration: line-through;
+    margin: 10px 0;
+  }
+
+  &__promotions-item .offer .percent {
+    display: inline-block;
+    background: var(--color-green);
+    margin: 0 10px;
+    border-radius: 20px;
+    color: var(--color-white);
+    padding: 5px;
+    font-weight: 600;
+  }
+
+  &__promotions-item-button {
+    @include block-set(
+                    auto,
+                    40px,
+                    auto,
+                    0 auto,
+                    var(--color-green) 10% 50% no-repeat
+    );
+    border: 0;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  &__promotions-item-button:hover {
+    @include block-set(
+                    auto,
+                    40px,
+                    auto,
+                    0 auto,
+                    var(--color-green-hover) 10% 50% no-repeat
+    );
+  }
+
+  &__promotions-item .amount {
+    margin: 10px 0;
+  }
+
+  &__promotions-item .amount-input {
+    width: 30px;
+    height: 20px;
+    border-radius: 0px;
+    background: #f5f5f5;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 0 10px;
+    color: var(--color-dark);
+    text-align: center;
+    font-size: 12px;
+    padding: 0;
+  }
+
+  &__promotions-item .amount-input::-webkit-outer-spin-button,
+  &__promotions-item .amount-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &__promotions-item .amount button {
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: 0;
+    border-radius: 20px;
+    color: var(--color-green);
+    font-size: 18px;
+    font-weight: 600;
+  }
+  &__shopping-cart-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+    .cart-item-container {
+      @include block-set(100%, auto, auto, 0 auto, none);
+      max-width: 1170px;
+      box-sizing: border-box;
+      .cart-order-product {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 20px;
+        align-items: center;
+        justify-items: center;
+        width: auto;
+        align-self: center;
+        padding: 10px;
+        margin: 10px auto;
+        background: var(--color-white);
+      }
+      img {
+        width: 50px;
+        height: auto;
+      }
+      .cart-close img {
+        width: 20px;
+      }
+      .cart-close{
+        cursor: pointer;
+      }
+    }
+    .total_order_price {
+      @include block-set(100%, auto, 10px, 0 auto, var(--color-green));
+      max-width: 1170px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+
+      p,
+      h3 {
+        @include font-face(
+                        $font-size-header-fourth * 1px,
+                        500,
+                        var(--color-white)
+        );
+      }
+    }
+    .order_delivery {
+      @include block-set(
+                      100%,
+                      auto,
+                      30px,
+                      50px auto 10px auto,
+                      var(--color-white)
+      );
+      box-sizing: border-box;
+      max-width: 1170px;
+
+      .radio_group {
+        display: flex;
+        justify-content: left;
+        gap: 30px;
+      }
+
+      /* The container */
+      .container {
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      /* Hide the browser's default radio button */
+      .container input {
+        //position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+      }
+
+      /* Create a custom radio button */
+      .checkmark {
+        @include font-face(12px, 500, var(--color-dark));
+        background: #eee url("../images/svg/truck_dark.svg") 20px 50% no-repeat;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 30px 15px 60px;
+        border-radius: 50px;
+      }
+
+      /* On mouse-over, add a grey background color */
+      .container:hover input ~ .checkmark {
+        background-color: #ccc;
+        transition: 1s;
+      }
+
+      /* When the radio button is checked, add a blue background */
+      .container input:checked ~ .checkmark {
+        color: var(--color-white);
+        background: var(--color-green) url("../images/svg/truck_light.svg") 20px
+        50% no-repeat;
+        transition: 0.3s;
+      }
+
+      /* Create the indicator (the dot/circle - hidden when not checked) */
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      /* Show the indicator (dot/circle) when checked */
+      .container input:checked ~ .checkmark:after {
+        display: block;
+      }
+    }
+    .order_info {
+      @include block-set(100%, auto, 30px, 10px auto, var(--color-white));
+      box-sizing: border-box;
+      max-width: 1170px;
+    }
+    .order_payment {
+      @include block-set(
+                      100%,
+                      auto,
+                      30px,
+                      10px auto 10px auto,
+                      var(--color-white)
+      );
+      box-sizing: border-box;
+      max-width: 1170px;
+    }
+  }
+  .go-back {
+    border: 0;
+    padding: 10px 20px;
+    background: var(--color-green);
+    color: var(--color-white);
+    border-radius: 30px;
+    margin-left: 30px;
+    order: 1;
+    text-decoration: none;
+    text-align: center;
+    @include font-face($font-size-regular*1px, 300, var(--color-white));
+  }
+
+  &__header_container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1170px;
+    align-items: center;
+    margin: 30px auto;
+    padding: 0 30px;
+  }
+  .order_info form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    input {
+      border-radius: 0;
+      border-color: rgba(0, 0, 0, 0.1);
+      height: 30px;
+      padding: 5px 10px;
+      margin: 0;
+      text-transform: none;
+      font-weight: 200;
+      @include font-face(12px, 100, var(--color-dark));
+    }
+    textarea {
+      padding: 5px 10px;
+      border-color: rgba(0, 0, 0, 0.1);
+      min-height: 80px;
+    }
+    label {
+      @include font-face(16px, 500, var(--color-dark));
+    }
+  }
+  .order_payment {
+    &__container {
+      margin: 20px 0;
+    }
+    /* The container */
+    .wrapper {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      @include font-face(16px, 500, var(--color-dark));
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Hide the browser's default radio button */
+    .wrapper input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    /* Create a custom radio button */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+      border-radius: 50%;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .wrapper:hover input ~ .checkmark {
+      background-color: #ccc;
+    }
+
+    /* When the radio button is checked, add a blue background */
+    .wrapper input:checked ~ .checkmark {
+      background-color: var(--color-green);
+    }
+
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    /* Show the indicator (dot/circle) when checked */
+    .wrapper input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+    /* Style the indicator (dot/circle) */
+    .wrapper .checkmark:after {
+      top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+    }
+  }
+}
+
+.section_02 {
+  @include block-set(100%, auto, 0, 0 auto, var(--color-green));
+
+  &__banner.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+
+  &__banner.container img {
+    width: 100%;
+    height: auto;
+  }
+
+  &__banner.container .inner_left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+  }
+
+  &__banner.container .inner_right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+  }
+
+  &__banner.container .text {
+    position: absolute;
+    width: 50%;
+    @include font-face(3rem, 600, var(--color-white));
+    box-sizing: border-box;
+    text-transform: uppercase;
+  }
+}
+
+.section_03 {
+  @include block-set(
+                  100%,
+                  auto,
+                  50px 0 50px 0,
+                  0 auto,
+                  url("../images/bg_fon_2.png") 0 100% no-repeat
+  );
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    margin: 0 0 30px 0;
+    text-align: center;
+  }
+
+  &__info {
+    @include block-set(auto, auto, 0, 0 30px, none);
+    width: 1170px;
+    display: flex;
+    justify-content: center;
+
+    gap: 30px;
+
+    h3 {
+      margin: 20px 0 0 0;
+    }
+
+    .sub_text {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-green);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.section_04 {
+  @include block-set(100%, 100px, 0, 0 auto, var(--color-green));
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    width: 1170px;
+    justify-content: space-between;
+    gap: 50px;
+    height: 100%;
+    align-items: center;
+    @include font-face($font-size-regular * 1px, 400, var(--color-white));
+    text-transform: uppercase;
+  }
+
+  &__container.phone {
+    background: url("../images/svg/phone_small.svg") 0 50% no-repeat;
+    padding-left: 40px;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  &__container.email {
+    background: url("../images/svg/email_small.svg") 0 50% no-repeat;
+    padding-left: 40px;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  &__container.support {
+    background: url("../images/svg/support_small.svg") 0 50% no-repeat;
+    padding-left: 40px;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  span.black {
+    color: var(--color-dark);
+    font-weight: 600;
+  }
+}
+
+.footer {
+  @include block-set(100%, auto, 50px 0, 0 auto, var(--color-dark));
+  display: flex;
+  justify-content: center;
+  color: var(--color-white);
+
+  &__container {
+    width: 1170px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 0px;
+  }
+
+  &__container .tel {
+    @include font-face($font-size-header-third * 1px, 500, var(--color-white));
+    margin-top: 20px;
+  }
+
+  &__container .time {
+    @include font-face($font-size-header-fifth * 1px, 300, var(--color-beige));
+  }
+
+  &__container a {
+    @include font-face($font-size-regular * 1px, 300, var(--color-white));
+    text-transform: none;
+    text-decoration: none;
+    margin: 5px 0;
+    display: inline-flex;
+  }
+
+  &__container a:hover {
+    color: var(--color-beige);
+  }
+
+  &__container h5 {
+    margin-bottom: 10px;
+  }
+}
+.popup_success{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include block-set(auto, auto, 10px 20px, 0 auto, var(--color-green));
+  @include font-face($font-size-header-fourth * 1px, 600, var(--color-white));
+  text-transform: uppercase;
+}
+.overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+}
+
+p.order_form-field{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color:#ff0000
+}
+.popup_autorization {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: var(--color-white);
+    min-width: 350px;
+    flex-direction: column;
+
+  }
+
+  &__header {
+    background: var(--color-dark);
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  h3 {
+    color: var(--color-beige);
+  }
+
+  &__close {
+    width: 20px;
+    height: 20px;
+    background: url("../images/svg/close_button.svg") no-repeat;
+    position: absolute;
+    right: 0;
+    margin-top: -25px;
+    margin-right: 10px;
+  }
+
+  &__close:hover {
+    cursor: pointer;
+  }
+
+  &__content {
+    padding: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__content form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__content form input {
+    border-radius: 0;
+    @include font-face($font-size-regular * 1px, 300, var(--color-dark));
+    text-transform: none;
+    width: 100%;
+  }
+
+  &__content form button {
+    @include block-set(auto, 40px, 0 60px, 0 auto, var(--color-green) 10% 50% no-repeat
+    );
+    border: 0;
+    font-size: 12px;
+    font-weight: 600;
+    transition: 0.5s;
+  }
+
+  &__content form button:hover {
+    @include block-set(auto,40px,0 60px,0 auto,var(--color-green-hover) 10% 50% no-repeat
+    )
+  }
+  .orders_print{
+      td {
+          border:1px solid #000;
+          padding:5px 20px;
+           width:100px;
+          }
+      td:nth-child(1){
+                width:0px!important;
+           }
+       tr:nth-child(1){
+                 font-weight:600;
+            }
+      }
+   .orders_container{
+   margin: 20px 0;
+   }
+}
